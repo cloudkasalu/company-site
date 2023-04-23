@@ -21,41 +21,42 @@ navbarToggler.addEventListener('click', (e)=>{
       navbarToggler.setAttribute('aria-expanded', "false");
     }
        
-
 })
 
-
-$(document).ready(function(){
+if(document.querySelector('.testimonial-slider')){
+  $(document).ready(function(){
    
-$('.testimonial-slider').slick({
-    dots: true,
-    autoplay:true,
-    infinite: true,
-    centerMode: true,
-    centerPadding: '300px',
-    slidesToShow: 1,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: '100px',
-          slidesToShow: 1
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: '40px',
-          slidesToShow: 1
-        }
-      }
-    ]
-  });
+    $('.testimonial-slider').slick({
+        dots: true,
+        autoplay:true,
+        infinite: true,
+        centerMode: true,
+        centerPadding: '300px',
+        slidesToShow: 1,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '100px',
+              slidesToShow: 1
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '40px',
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
+    
+    })
+    
 
-})
-
+}
 
