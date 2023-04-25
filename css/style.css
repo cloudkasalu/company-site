@@ -15,6 +15,10 @@
   --body-font: "Raleway", "san-serif";
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--black);
   font-family: var(--body-font);
@@ -37,43 +41,63 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 32px;
 }
 @media (min-width: 786px) {
+  h1 {
+    font-size: 36px;
+  }
+}
+@media (min-width: 960px) {
   h1 {
     font-size: 48px;
   }
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 28px;
 }
 @media (min-width: 786px) {
+  h2 {
+    font-size: 32px;
+  }
+}
+@media (min-width: 960px) {
   h2 {
     font-size: 36px;
   }
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 21px;
 }
 @media (min-width: 786px) {
+  h3 {
+    font-size: 24px;
+  }
+}
+@media (min-width: 960px) {
   h3 {
     font-size: 28px;
   }
 }
 
 h4 {
-  font-size: 21px;
+  font-size: 18px;
 }
 @media (min-width: 786px) {
+  h4 {
+    font-size: 21px;
+  }
+}
+@media (min-width: 960px) {
   h4 {
     font-size: 24px;
   }
 }
 
 h5 {
-  font-size: 18px;
+  font-size: 17px;
 }
 
 a {
@@ -325,7 +349,7 @@ nav {
   background: var(--primary-color);
   transition: background 10ms 300ms ease;
   display: block;
-  width: 30px;
+  width: 28px;
   height: 2px;
   position: relative;
 }
@@ -337,17 +361,17 @@ nav {
   right: 0;
   left: 0;
   background: var(--primary-color);
-  width: 30px;
+  width: 28px;
   height: 2px;
   content: "";
 }
 
 .navbar-toggler .navbar-toggler-icon::before {
-  top: -8px;
+  top: -7px;
 }
 
 .navbar-toggler .navbar-toggler-icon::after {
-  top: 8px;
+  top: 7px;
 }
 
 .nav-brand img {
@@ -362,6 +386,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all ease-in 300ms;
 }
 
 /* .navbar-nav .nav-list{
@@ -380,12 +405,12 @@ nav {
 
 .navbar-nav {
   width: 100%;
-  top: 80px;
+  top: 70px;
   left: 0;
-  transform: translateX(-75vw);
+  transform: translateX(-100vw);
   position: fixed;
   z-index: 9;
-  width: 70vw;
+  width: 100vw;
   height: 100vh;
   background-color: var(--white);
   transition: 0.3s all ease-in;
@@ -412,22 +437,38 @@ header {
 
 .header-content {
   width: 100%;
-  min-height: 70vh;
+  min-height: 75vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  opacity: 0;
+  transform: translateY(100px);
+  animation: clear 0.5s forwards;
 }
 .header-content .header-text {
-  margin-left: 5rem;
-  max-width: 400px;
+  text-align: center;
+  margin-bottom: 3rem;
 }
-.header-content .header-text h1 {
-  font-size: 36px;
+@media (min-width: 960px) {
+  .header-content .header-text {
+    text-align: start;
+    margin-left: 5rem;
+    max-width: 400px;
+  }
+  .header-content .header-text h1 {
+    font-size: 36px;
+  }
 }
 .header-content .header-image {
   max-width: 500px;
   margin: auto;
+  display: none;
+}
+@media (min-width: 960px) {
+  .header-content .header-image {
+    display: block;
+  }
 }
 
 #aboutSection {
@@ -459,6 +500,11 @@ header {
   background-color: var(--light-grey);
   border-radius: 10px;
   padding: 1rem;
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+}
+#planningSection .process-card:hover {
+  transform: translateY(-10px);
 }
 #planningSection .process-card .card-heading {
   margin-bottom: 1rem;
@@ -516,6 +562,11 @@ header {
   padding: 1rem;
   border-radius: 10px;
   background-color: var(--light-grey);
+  transition: all ease-in 200ms;
+  cursor: pointer;
+}
+#servicesSection .services-card:hover {
+  transform: scale(1.05);
 }
 #servicesSection .services-card .icon {
   background-color: var(--white);
@@ -532,12 +583,18 @@ header {
 }
 #teamSection .team-member .member-image {
   height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all ease-in 300ms;
 }
 #teamSection .team-member .member-image img {
   border-radius: 10px;
 }
 #teamSection .team-member .member-details {
   margin-top: 2rem;
+}
+#teamSection .team-member:hover img {
+  transform: scale(1.1);
 }
 
 #testimonialSection .testimonial {
@@ -552,6 +609,9 @@ header {
 }
 #testimonialSection .testimonial .user-image img {
   border-radius: 100%;
+}
+#testimonialSection .testimonial .qoutes img {
+  width: 10vw;
 }
 #testimonialSection .testimonial .paragraph {
   margin: 1rem 0;
@@ -710,10 +770,17 @@ header {
   background-color: var(--white);
   padding: 1rem;
   border-radius: 10px;
+  cursor: pointer;
+}
+#blogSection .post:hover .post-image img {
+  transform: scale(1.1);
 }
 #blogSection .post .post-image {
   width: 100%;
   height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all ease-in 300ms;
 }
 #blogSection .post .post-image img {
   border-radius: 10px;
@@ -752,8 +819,9 @@ header {
 #qoute .qoute-container {
   border-radius: 15px;
   margin: auto;
-  width: 90%;
-  height: 350px;
+  width: 100%;
+  min-height: 350px;
+  padding: 1rem;
   background-image: url("../images/image8.jpg");
   background-position: center;
   background-size: cover;
@@ -765,16 +833,24 @@ header {
   align-items: center;
 }
 #qoute .qoute-container .qoute-content {
-  max-width: 70%;
+  max-width: 80%;
 }
 #qoute .qoute-container .qoute-content p {
   color: white;
   font-weight: 600;
-  font-size: 28px;
+  font-size: 24px;
   text-align: center;
 }
 #qoute .qoute-container .qoute-content button {
   margin-top: 2.5rem;
+}
+@media (min-width: 786px) {
+  #qoute .qoute-container {
+    width: 90%;
+  }
+  #qoute .qoute-container .qoute-content p {
+    font-size: 28px;
+  }
 }
 
 #portfolioSection .portfolio .category {
@@ -907,6 +983,21 @@ footer .footer-col .footer-list li {
   .navbar-nav .nav-list .nav-list-item {
     margin-top: 0;
   }
+  .navbar-nav .nav-list .nav-list-item a {
+    position: relative;
+  }
+  .navbar-nav .nav-list .nav-list-item a:hover::after {
+    width: 100%;
+    transform: none;
+    transition: ease-in all 0.3s;
+  }
+  .navbar-nav .nav-list .nav-list-item a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: var(--secondary-color);
+  }
   .nav-button {
     display: block;
   }
@@ -916,4 +1007,27 @@ footer .footer-col .footer-list li {
   .header-content .header-text h1 {
     font-size: 48px;
   }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes clear {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+nav.begin-scroll {
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  animation: clear 300ms ease-in forwards;
+}
+nav.begin-scroll .navbar {
+  height: 70px;
 }/*# sourceMappingURL=style.css.map */

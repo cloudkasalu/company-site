@@ -16,6 +16,11 @@
     --body-font: "Raleway", 'san-serif';
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
+
 body{
     color: var(--black);
     font-family: var(--body-font);
@@ -38,35 +43,47 @@ h1,h2,h3,h4,h5{
 }
 
 h1{
-    font-size: 36px;
+    font-size: 32px;
     @media (min-width:786px) {
+        font-size: 36px;
+    }
+    @media (min-width:960px) {
         font-size: 48px;
     }
 }
 
 h2{
-    font-size: 32px;
+    font-size: 28px;
     @media (min-width:786px) {
+        font-size: 32px;
+    }
+    @media (min-width:960px) {
         font-size: 36px;
     }
 }
 
 h3{
-    font-size: 24px;
+    font-size: 21px;
     @media (min-width:786px) {
+        font-size: 24px;
+    }
+    @media (min-width:960px) {
         font-size: 28px;
     }
 }
 
 h4{
-    font-size: 21px;
+    font-size: 18px;
     @media (min-width:786px) {
+        font-size: 21px;
+    }
+    @media (min-width:960px) {
         font-size: 24px;
     }
 }
 
 h5{
-    font-size: 18px;
+    font-size: 17px;
 }
 
 a{
@@ -277,6 +294,9 @@ input, textarea{
     }
 }
 
+
+
+
 nav{
     z-index: 10;
     position: fixed;
@@ -319,7 +339,7 @@ nav{
     background: var(--primary-color);
     transition: background 10ms 300ms ease;
     display: block;
-    width: 30px;
+    width: 28px;
     height: 2px;
     position: relative;
   }
@@ -333,17 +353,17 @@ nav{
     right: 0;
     left: 0;
     background: var(--primary-color);
-    width: 30px;
+    width: 28px;
     height: 2px;
     content: '';
   }
 
   .navbar-toggler .navbar-toggler-icon::before {
-    top: -8px;
+    top: -7px;
   }
 
   .navbar-toggler .navbar-toggler-icon::after {
-    top: 8px;
+    top: 7px;
   } 
 
 .nav-brand img{
@@ -358,6 +378,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all ease-in 300ms;
 }
 
 /* .navbar-nav .nav-list{
@@ -377,13 +398,13 @@ nav{
 
 .navbar-nav{
     width: 100%;
-    top: 80px;
+    top: 70px;
     left: 0;
-    transform: translateX(-75vw);
+    transform: translateX(-100vw);
     // border: 1px solid;
     position: fixed;
     z-index: 9;
-    width: 70vw;
+    width: 100vw;
     height: 100vh;
     background-color: var(--white);
     transition: .3s all ease-in;
@@ -415,22 +436,36 @@ header{
 
 .header-content{
     width: 100%;
-    min-height: 70vh;
+    min-height: 75vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: clear .5s forwards;
 
     .header-text{
-        margin-left: 5rem;
-        max-width: 400px;
-        h1{
-            font-size: 36px;
+        text-align: center;
+        margin-bottom: 3rem;
+
+        @media (min-width:960px) {
+            text-align: start;
+            margin-left: 5rem;
+            max-width: 400px;
+            h1{
+                font-size: 36px;
+            }
         }
     }
     .header-image{
         max-width: 500px;
         margin: auto;
+        display: none;
+
+        @media (min-width:960px) {
+            display: block;
+        }
     }
 }
 
@@ -473,6 +508,12 @@ header{
         background-color: var(--light-grey);
         border-radius: 10px;
         padding: 1rem;
+        cursor: pointer;
+        transition: all ease-in-out 300ms;
+
+        &:hover{
+            transform: translateY(-10px);
+        }
         .card-heading{
             margin-bottom: 1rem;
             .icon{
@@ -538,6 +579,12 @@ header{
         padding: 1rem;
         border-radius: 10px;
         background-color: var(--light-grey);
+        transition: all ease-in 200ms;
+        cursor: pointer;
+
+        &:hover{
+            transform: scale(1.05);
+        }
         .icon{
             background-color: var(--white);
             margin-bottom: 1rem;
@@ -556,12 +603,21 @@ header{
     .team-member{
         .member-image{
             height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all ease-in 300ms;
             img{
                 border-radius: 10px;
             }
         }
         .member-details{
             margin-top: 2rem;
+        }
+
+        &:hover{
+            img{
+                transform: scale(1.1);
+            }
         }
     }
 }
@@ -573,6 +629,11 @@ header{
             height: 100px;
             img{
                 border-radius: 100%;
+            }
+        }
+        .qoutes{
+            img{
+                width: 10vw;
             }
         }
         .paragraph{
@@ -750,6 +811,7 @@ header{
         grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
         grid-gap: 2rem;
 
+
         @media (min-width:450px) {
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     
@@ -761,9 +823,18 @@ header{
         background-color: var(--white);
         padding: 1rem;
         border-radius: 10px;
+        cursor: pointer;
+        &:hover{
+            .post-image img{
+                transform: scale(1.1);
+            }
+        }
         .post-image{
             width: 100%;
             height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: all ease-in 300ms;
             img{
                 border-radius: 10px;
             }
@@ -809,8 +880,9 @@ header{
     .qoute-container{
         border-radius: 15px;
         margin: auto;
-        width: 90%;
-        height: 350px;
+        width: 100%;
+        min-height: 350px;
+        padding: 1rem;
         background-image: url('../images/image8.jpg');
         background-position: center;
         background-size: cover;
@@ -823,15 +895,22 @@ header{
         align-items: center;
 
         .qoute-content{
-            max-width: 70%;
+            max-width: 80%;
             p{
                 color: white;
                 font-weight: 600;
-                font-size: 28px;
+                font-size: 24px;
                 text-align: center;
             }
             button{
                 margin-top: 2.5rem;
+            }
+        }
+
+        @media (min-width:786px) {
+            width: 90%;
+           .qoute-content p{
+                font-size: 28px;
             }
         }
     }
@@ -996,6 +1075,24 @@ footer{
         .nav-list{
             .nav-list-item{
                 margin-top:0 ;
+
+                a{
+                    position: relative;
+                  
+                    &:hover::after{
+                        width: 100%;
+                        transform: none;
+                        transition: ease-in all .3s;
+                    }
+                    &::after{
+                        content: '';
+                        display: block;
+                        width: 0;
+                        height:3px;
+                        // transform: translateX(-20%);
+                        background-color: var(--secondary-color);
+                    }
+                }
             }
         }
     }
@@ -1021,3 +1118,53 @@ footer{
     
     
 }
+
+
+
+
+
+
+
+// Animation 
+
+
+
+
+@keyframes slideUp {
+    from{
+        opacity: 0;
+        transform:translateY(100px) ;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+}
+
+
+@keyframes clear {
+    to{
+        opacity: 1;
+        transform: none;
+    }
+    
+}
+
+
+nav.begin-scroll{
+    // box-shadow: ;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    animation: clear 300ms ease-in forwards;
+
+    .navbar{
+        height: 70px
+    }
+}
+
+
+
+
+
+
+

@@ -1,6 +1,33 @@
+const aboutSection = document.querySelector('#aboutSection');
+const nav = document.querySelector('nav');
+const headerContent = document.querySelector('.header-scroll')
+const aboutImage = document.querySelector('#aboutImage')
 
+let navHeight = nav.scrollHeight
 
+function inViewPort(el){
+  let rect = el.getBoundingClientRect()
+  return(
+    (rect.top <= 0 && rect.bottom >= 0) || 
+    (rect.bottom >= window.innerHeight && rect.top <= window.innerHeight)||
+    (rect.top >= 0 && rect.bottom <= window.innerHeight)
+  )
+}
+function moveHeader(){
+  let top = window.scrollY;
+  let mainOnTop = headerContent.getBoundingClientRect().top - navHeight
+// console.log(inViewPort(aboutImage))
+  mainOnTop< 0 
+  ? nav.classList.add('begin-scroll')
+  : nav.classList.remove('begin-scroll')
 
+  // headerContent.style.transform = `translateY(-${top/1.5}px)`
+
+  window.requestAnimationFrame(moveHeader)
+
+}
+
+window.requestAnimationFrame(moveHeader)
 
 
 const navbarToggler = document.querySelector('.navbar-toggler');
@@ -22,6 +49,9 @@ navbarToggler.addEventListener('click', (e)=>{
     }
        
 })
+
+
+
 
 if(document.querySelector('.testimonial-slider')){
   $(document).ready(function(){
@@ -48,7 +78,7 @@ if(document.querySelector('.testimonial-slider')){
             settings: {
               arrows: false,
               centerMode: true,
-              centerPadding: '40px',
+              centerPadding: '10px',
               slidesToShow: 1
             }
           }
