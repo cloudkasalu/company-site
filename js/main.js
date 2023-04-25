@@ -14,7 +14,7 @@ function inViewPort(el){
   )
 }
 function moveHeader(){
-  let top = window.scrollY;
+  // let top = window.scrollY;
   let mainOnTop = headerContent.getBoundingClientRect().top - navHeight
 // console.log(inViewPort(aboutImage))
   mainOnTop< 0 

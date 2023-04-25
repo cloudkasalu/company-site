@@ -442,9 +442,6 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  opacity: 0;
-  transform: translateY(100px);
-  animation: clear 0.5s forwards;
 }
 .header-content .header-text {
   text-align: center;
@@ -1006,16 +1003,6 @@ footer .footer-col .footer-list li {
   }
   .header-content .header-text h1 {
     font-size: 48px;
-  }
-}
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
   }
 }
 @keyframes clear {
