@@ -609,6 +609,7 @@ header {
 }
 #testimonialSection .testimonial .qoutes img {
   width: 10vw;
+  max-width: 100px;
 }
 #testimonialSection .testimonial .paragraph {
   margin: 1rem 0;
